@@ -1,3 +1,25 @@
+.intro-div {
+  border-radius: 10% 10% 100% 0% / 0% 0% 19% 0%;
+  border-style: none none groove none;
+  border-color: #ffc107;
+}
 .profile-image {
   border-radius: 39% 61% 33% 67% / 56% 33% 67% 44%;
+  border-style: groove;
+  border-color: #ffc107;
+}
+
+.socials-spacing {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.socials {
+  transition-timing-function: ease-in-out;
+}
+
+.socials:hover {
+  fill: #ffc107;
+  cursor: pointer;
+  transition: fill 1s;
 }
