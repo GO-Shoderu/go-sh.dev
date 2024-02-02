@@ -1,12 +1,17 @@
+.headings {
+  color: orange;
+}
+
 .intro-div {
   border-radius: 10% 10% 100% 0% / 0% 0% 19% 0%;
   border-style: none none groove none;
-  border-color: #ffc107;
+  border-color: orange;
 }
+
 .profile-image {
   border-radius: 39% 61% 33% 67% / 56% 33% 67% 44%;
   border-style: groove;
-  border-color: #ffc107;
+  border-color: orange;
 }
 
 .socials-spacing {
@@ -16,10 +21,11 @@
 
 .socials {
   transition-timing-function: ease-in-out;
+  margin-top: 10px;
 }
 
 .socials:hover {
-  fill: #ffc107;
+  fill: orange;
   cursor: pointer;
   transition: fill 1s;
 }
