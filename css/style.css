@@ -36,12 +36,16 @@ h1 {
 }
 
 .socials-spacing {
-  margin-left: 10px;
+  /* margin-left: 10px; */
   margin-right: 10px;
 }
 
+.socials {
+  fill: gray;
+}
+
 .socials:hover {
-  color: orange;
+  fill: orange;
 }
 
 @keyframes fadeIn {
