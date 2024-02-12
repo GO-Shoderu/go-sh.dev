@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Website Launch Countdown</title>
+    <style></style>
+  </head>
+  <body>
+    <h1>Website Launch Countdown</h1>
+    <div id="countdown" class="countdown"></div>
+    <div class="social-links">
+      <a href="YOUR_LINKEDIN_PROFILE_URL" target="_blank">LinkedIn</a>
+      <a href="YOUR_GITHUB_PROFILE_URL" target="_blank">GitHub</a>
+      <a href="YOUR_TWITTER_PROFILE_URL" target="_blank">Twitter</a>
+      <a href="YOUR_INSTAGRAM_PROFILE_URL" target="_blank">Instagram</a>
+      <a href="LINK_TO_YOUR_CV" target="_blank">CV</a>
+    </div>
+
+    <script>
+      // Set the launch date
+      const launchDate = new Date("May 13, 2024 00:00:00").getTime();
+
+      // Update the countdown every second
+      const countdown = setInterval(function () {
+        const now = new Date().getTime();
+        const distance = launchDate - now;
+
+        // Calculate days, hours, minutes, and seconds
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display the countdown
+        document.getElementById(
+          "countdown"
+        ).innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+        // If the launch date has passed, display a message and clear the countdown
+        if (distance < 0) {
+          clearInterval(countdown);
+          document.getElementById("countdown").innerHTML = "Website is live!";
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>
