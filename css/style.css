@@ -1,6 +1,7 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background-color: #1e1e1e; /* Dark background color */
+  color: #fff; /* White text color */
   margin: 0;
   padding: 0;
 }
@@ -25,27 +26,29 @@ body {
 
 h1 {
   font-size: 2.5rem;
-  color: #333;
+  color: #fff;
 }
 
 .countdown {
   font-size: 3rem;
   margin-top: 30px;
+  animation: fadeIn 2s ease; /* Fade in animation */
 }
 
-.social-links {
-  margin-top: 20px;
+.socials-spacing {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
-.social-links a {
-  display: inline-block;
-  margin: 0 10px;
-  font-size: 1.5rem;
-  text-decoration: none;
-  color: #333;
-  transition: color 0.3s ease;
+.socials:hover {
+  color: orange;
 }
 
-.social-links a:hover {
-  color: #007bff;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
