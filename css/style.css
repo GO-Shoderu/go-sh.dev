@@ -41,3 +41,24 @@
   border-color: orange;
   transition: border-color 1s;
 }
+
+/* Styling for the popup */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  border-radius: 5%;
+}
+
+.close-btn {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  cursor: pointer;
+}
