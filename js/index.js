@@ -80,7 +80,7 @@ function showPopup() {
     <h5 class="headings text-center text-md-start">Coming soon!</h5>
     <span class="close-btn text-center text-md-start">&times;</span>
     <p class="lead text-center text-md-start">
-              Enter your email to be notified when the portfolio website version
+              Enter your email to get notified when the portfolio website version
               2.0 is released:
             </p>
             <div class="container">
@@ -113,5 +113,8 @@ function showPopup() {
   });
 }
 
-// Attach the function to the button click event
-document.getElementById("comingSoonBtn").addEventListener("click", showPopup);
+// Get all elements with the class 'popup-trigger-btn' and attach the function to their click event
+const popupTriggerButtons = document.querySelectorAll(".popup-trigger-btn");
+popupTriggerButtons.forEach(function (button) {
+  button.addEventListener("click", showPopup);
+});
