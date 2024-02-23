@@ -77,8 +77,31 @@ function showPopup() {
 
   // Add content to popup
   popup.innerHTML = `
-    <p>Coming soon!</p>
-    <span class="close-btn">&times;</span>
+    <h5 class="headings text-center text-md-start">Coming soon!</h5>
+    <span class="close-btn text-center text-md-start">&times;</span>
+    <p class="lead text-center text-md-start">
+              Enter your email to be notified when the portfolio website version
+              2.0 is released:
+            </p>
+            <div class="container">
+              <form class="row">
+                <input
+                  type="email"
+                  name="emailInput"
+                  id="emailInput"
+                  placeholder="Enter your email"
+                  class="col-md mt-2"
+                  required
+                />
+                <button
+                  type="submit"
+                  class="btn btn-light col-md mt-2"
+                  onclick="callEmailLambdaFunction()"
+                >
+                  Subscribe
+                </button>
+              </form>
+            </div>
   `;
 
   // Append popup to document body
