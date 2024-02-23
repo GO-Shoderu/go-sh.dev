@@ -80,8 +80,9 @@ function showPopup() {
     <h5 class="headings text-center text-md-start">Coming soon!</h5>
     <span class="close-btn text-center text-md-start">&times;</span>
     <p class="lead text-center text-md-start">
-              Enter your email to get notified when the portfolio website version
-              2.0 is released:
+              Count down with <a href="https://go-sh.dev" target="_blank"
+              >go-sh.dev</a> or Enter your email to get notified when the portfolio website version
+              2.0 is released
             </p>
             <div class="container">
               <form class="row">
