@@ -26,12 +26,18 @@
 }
 
 .socials {
-  transition-timing-function: ease-in-out;
   margin-top: 10px;
+  fill: lightgray;
 }
 
 .socials:hover {
   fill: orange;
   cursor: pointer;
   transition: fill 1s;
+}
+
+.btn-light:hover {
+  border-style: groove;
+  border-color: orange;
+  transition: border-color 1s;
 }
