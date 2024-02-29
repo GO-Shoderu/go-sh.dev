@@ -24,18 +24,22 @@ fetch(lambdaUrl)
     console.error("Error retrieving visit count:", error);
   });
 
-function callEmailLambdaFunction() {
+function callEmailApiGatewayForPopUp() {
   event.preventDefault();
 
   // Get the email address entered by the user
-  const email = document.getElementById("emailInput").value;
+  const email = document.getElementById("emaiInput").value;
+
+  console.log(email);
 
   // Define the URL of your Lambda function
-  const lambdaUrl =
-    "https://aa5nqvgmgrwwu5d646i6geenyy0rvpbp.lambda-url.us-east-1.on.aws/";
+  const api_gateway =
+    "https://ils77dbbve.execute-api.us-east-1.amazonaws.com/serverless-web-app-emails-api-stage/serverless-web-app-emails-api-resources";
 
   // Define the data to be sent in the request body
   const data = JSON.stringify({ email });
+
+  console.log(data);
 
   // Defining the options for the fetch request
   const options = {
@@ -47,7 +51,7 @@ function callEmailLambdaFunction() {
   };
 
   // Making the fetch request to the Lambda function
-  fetch(lambdaUrl, options)
+  fetch(api_gateway, options)
     .then((response) => {
       if (!response.ok) {
         throw new Error("Network response was not ok");
@@ -55,17 +59,59 @@ function callEmailLambdaFunction() {
       return response.json();
     })
     .then((data) => {
-      console.log("Response from Lambda function:", data);
+      console.log("Response from API:", data);
 
       //   alert(data.body.message);
     })
     .catch((error) => {
       console.error("Error calling Lambda function:", error);
+    });
+}
 
-      //   alert(
-      //     "An error occurred while submitting the email. Please try again later."
-      //   );
-      // alert(data.body.message);
+function callEmailApiGateway() {
+  event.preventDefault();
+
+  // Get the email address entered by the user
+  const email = document.getElementById("emailInput").value;
+
+  console.log(email);
+
+  // Define the URL of your api gateway
+  // const api_gateway =
+  //   "https://esfou4c7pg.execute-api.us-east-1.amazonaws.com/serverless-web-app-emails-api-stage/serverless-web-app-emails-api-resource";
+
+  const api_gateway =
+    "https://ils77dbbve.execute-api.us-east-1.amazonaws.com/serverless-web-app-emails-api-stage/serverless-web-app-emails-api-resources";
+
+  // Define the data to be sent in the request body
+  const data = JSON.stringify({ email });
+
+  console.log(data);
+
+  // Defining the options for the fetch request
+  const options = {
+    method: "OPTIONS",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: data,
+  };
+
+  // Making the fetch request to the Lambda function
+  fetch(api_gateway, options)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log("Response from API:", data);
+
+      //   alert(data.body.message);
+    })
+    .catch((error) => {
+      console.error("Error calling Lambda function:", error);
     });
 }
 
@@ -88,8 +134,8 @@ function showPopup() {
               <form class="row">
                 <input
                   type="email"
-                  name="emailInput"
-                  id="emailInput"
+                  name="emaiInput"
+                  id="emaiInput"
                   placeholder="Enter your email"
                   class="col-md mt-2"
                   required
@@ -97,7 +143,7 @@ function showPopup() {
                 <button
                   type="submit"
                   class="btn btn-light col-md mt-2"
-                  onclick="callEmailLambdaFunction()"
+                  onclick="callEmailApiGatewayForPopUp()"
                 >
                   Subscribe
                 </button>
