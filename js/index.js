@@ -17,7 +17,7 @@ const countdown = setInterval(function () {
   // Display the countdown
   document.getElementById(
     "countdown"
-  ).innerHTML = `${days} d(s) <br/> ${hours} hr(s): ${minutes} min(s): ${seconds} sec(s)`;
+  ).innerHTML = `${days} d(s) ${hours} hr(s): ${minutes} min(s): ${seconds} sec(s)`;
 
   // If the launch date has passed, display a message and clear the countdown
   if (distance < 0) {
@@ -25,3 +25,4 @@ const countdown = setInterval(function () {
     document.getElementById("countdown").innerHTML = "Website is live!";
   }
 }, 1000);
+
