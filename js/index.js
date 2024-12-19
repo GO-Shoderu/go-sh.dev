@@ -1,3 +1,6 @@
+// current year calculations for copywrite update
+document.getElementById("currentYear").textContent = new Date().getFullYear();
+
 // Set the launch date
 const launchDate = new Date("January 31, 2025 00:00:00").getTime();
 
