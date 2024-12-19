@@ -16,7 +16,11 @@
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg py-3">
       <div class="container">
-        <a href="" class="navbar-brand">go-sh.dev</a>
+        <!-- Logo -->
+        <a href="#home" class="navbar-brand">
+          <img src="./assets/images/logo/go-sh.png" alt="Go-sh Logo" width="40" height="40" class="d-inline-block align-text-top" />
+          <span class="ms-2">go-sh.dev</span>
+        </a>
 
         <button
           class="navbar-toggler"
@@ -144,7 +148,7 @@
 
           <!-- cv -->
           <span class="socials-spacing">
-            <a href="./assets/docs/CV-Gabriel-Shoderu.pdf" target="_blank"
+            <a href="./assets/docs/CV-Gabriel-O-Shoderu.pdf" target="_blank"
               ><svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 384 512"
@@ -224,7 +228,7 @@
     <!-- Visits & Notification  -->
     <section class="text-dark p-5 pb-4 text-center text-md-start">
       <div class="container">
-        <div class="row">
+        <!-- <div class="row">
           <div class="col-md mt-3">
             <h2><span class="headings">User Visits</span></h2>
             <p class="lead">
@@ -232,35 +236,18 @@
               <span id="visitCount">Loading...</span>
             </p>
           </div>
-          <div class="col-md mt-3">
-            <h2><span class="headings">Get Notified</span></h2>
-            <p class="lead">
-              Count down with
-              <a href="https://go-sh.dev" target="_blank">go-sh.dev</a> or Enter
-              your email to get notified when the portfolio website version 2.0
-              is released
-            </p>
-            <div class="container">
-              <form class="row">
-                <input
-                  type="email"
-                  name="emailInput"
-                  id="emailInput"
-                  placeholder="Enter your email"
-                  class="col-md mt-2"
-                  required
-                />
-                <button
-                  type="submit"
-                  class="btn btn-light col-md mt-2"
-                  onclick="callEmailLambdaFunction()"
-                >
-                  Subscribe
-                </button>
-              </form>
-            </div>
+          <div class="col-md">
+            <h2><span class="headings">Upgrade Count down with go-sh.dev</span></h2>
+            <div id="countdown" class="countdown"></div>
+          </div>
+        </div> -->
+        <div class="row justify-content-center align-items-center text-center" style="min-height: 200px;">
+          <div class="col-md">
+            <h2><span class="headings">Upgrade Count down with go-sh.dev</span></h2>
+            <div id="countdown" class="countdown"></div>
           </div>
         </div>
+
 
         <!-- social presense -->
         <div class="text-center container mt-4 pb-3 justify-content-between">
@@ -336,7 +323,7 @@
 
           <!-- cv -->
           <span class="socials-spacing">
-            <a href="./assets/docs/CV-Gabriel-Shoderu.pdf" target="_blank"
+            <a href="./assets/docs/CV-Gabriel-O-Shoderu.pdf" target="_blank"
               ><svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 384 512"

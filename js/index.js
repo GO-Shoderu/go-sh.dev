@@ -1,73 +1,34 @@
-document.getElementById("currentYear").textContent = new Date().getFullYear();
+// Set the launch date
+const launchDate = new Date("January 31, 2025 00:00:00").getTime();
 
-// retrieving visits
-// URL of the Lambda function
-const lambdaUrl =
-  "https://t7bvyk4kmnfhophv2wljjfyqki0dfnpd.lambda-url.us-east-1.on.aws/";
+// Update the countdown every second
+const countdown = setInterval(function () {
+  const now = new Date().getTime();
+  const distance = launchDate - now;
 
-// Making a fetch request to the Lambda function
-fetch(lambdaUrl)
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-    return response.json();
-  })
-  .then((data) => {
-    // Extracting the visit count from the response body
-    const visitCount = data.visits;
+  // Calculate days, hours, minutes, and seconds
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor(
+    (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+  );
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    // Updating the webpage with the visit count
-    document.getElementById("visitCount").textContent = visitCount;
-  })
-  .catch((error) => {
-    console.error("Error retrieving visit count:", error);
-  });
+  // Display the countdown
+  document.getElementById(
+    "countdown"
+  ).innerHTML = `${days} d(s) ${hours} hr(s): ${minutes} min(s): ${seconds} sec(s)`;
 
-function callEmailLambdaFunction() {
-  event.preventDefault();
+  document.getElementById(
+    "countdown_2"
+  ).innerHTML = `${days} d(s) ${hours} hr(s): ${minutes} min(s): ${seconds} sec(s)`;
 
-  // Get the email address entered by the user
-  const email = document.getElementById("emailInput").value;
-
-  // Define the URL of your Lambda function
-  const lambdaUrl =
-    "https://aa5nqvgmgrwwu5d646i6geenyy0rvpbp.lambda-url.us-east-1.on.aws/";
-
-  // Define the data to be sent in the request body
-  const data = JSON.stringify({ email });
-
-  // Defining the options for the fetch request
-  const options = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: data,
-  };
-
-  // Making the fetch request to the Lambda function
-  fetch(lambdaUrl, options)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      console.log("Response from Lambda function:", data);
-
-      //   alert(data.body.message);
-    })
-    .catch((error) => {
-      console.error("Error calling Lambda function:", error);
-
-      //   alert(
-      //     "An error occurred while submitting the email. Please try again later."
-      //   );
-      // alert(data.body.message);
-    });
-}
+  // If the launch date has passed, display a message and clear the countdown
+  if (distance < 0) {
+    clearInterval(countdown);
+    document.getElementById("countdown").innerHTML = "Update should be live!";
+  }
+}, 1000);
 
 // Function to show a popup message when the button is clicked
 function showPopup() {
@@ -77,32 +38,13 @@ function showPopup() {
 
   // Add content to popup
   popup.innerHTML = `
-    <h5 class="headings text-center text-md-start">Coming soon!</h5>
+    <h5 class="headings text-center text-md-start">This feature is Coming soon!</h5>
     <span class="close-btn text-center text-md-start">&times;</span>
-    <p class="lead text-center text-md-start">
-              Count down with <a href="https://go-sh.dev" target="_blank"
-              >go-sh.dev</a> or Enter your email to get notified when the portfolio website version
-              2.0 is released
-            </p>
-            <div class="container">
-              <form class="row">
-                <input
-                  type="email"
-                  name="emailInput"
-                  id="emailInput"
-                  placeholder="Enter your email"
-                  class="col-md mt-2"
-                  required
-                />
-                <button
-                  type="submit"
-                  class="btn btn-light col-md mt-2"
-                  onclick="callEmailLambdaFunction()"
-                >
-                  Subscribe
-                </button>
-              </form>
-            </div>
+    <br>
+    <p>Upgrade Count down with go-sh.dev, I'm working hard to finish the development of this site.
+    <br><br>
+    An upgrade is on the way and it should be up and running in </p>
+    <div id="countdown_2" class="countdown"></div>
   `;
 
   // Append popup to document body
