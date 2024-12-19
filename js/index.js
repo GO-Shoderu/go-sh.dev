@@ -1,3 +1,6 @@
+// current year calculations for copywrite update
+document.getElementById("currentYear").textContent = new Date().getFullYear();
+
 // Set the launch date
 const launchDate = new Date("January 31, 2025 00:00:00").getTime();
 
@@ -42,8 +45,8 @@ function showPopup() {
     <span class="close-btn text-center text-md-start">&times;</span>
     <br>
     <p>Upgrade Count down with go-sh.dev, I'm working hard to finish the development of this site.
-    <br><br>
-    An upgrade is on the way and it should be up and running in </p>
+    <br>
+    An upgrade is on the way and it should be up and running in: </p>
     <div id="countdown_2" class="countdown"></div>
   `;
 
