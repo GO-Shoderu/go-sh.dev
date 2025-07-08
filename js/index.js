@@ -2,7 +2,7 @@
 document.getElementById("currentYear").textContent = new Date().getFullYear();
 
 // Set the launch date
-const launchDate = new Date("July 11, 2025 00:00:00").getTime();
+const launchDate = new Date("August 1, 2025 00:00:00").getTime();
 
 // Update the countdown every second
 const countdown = setInterval(function () {
